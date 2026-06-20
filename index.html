@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Realistic 3D Earth - 4K Resolution</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- WebGL Canvas Container -->
+  <div id="canvas-container"></div>
+
+  <!-- HUD Interface -->
+  <div class="hud-container">
+    <header class="hud-header">
+      <div class="header-left">
+        <h1 class="hud-title">TERRA 3D</h1>
+        <p class="hud-subtitle">Interactive 4K Earth Visualization</p>
+      </div>
+      <div id="resolution-badge" class="badge badge-low-res">LOADING 2K TEXTURES</div>
+    </header>
+
+    <div class="hud-main">
+      <!-- Sidebar Controls Panel -->
+      <section class="hud-panel control-panel">
+        <div class="panel-header">
+          <span class="panel-icon">⚙</span>
+          <h2>SYSTEM CONTROLS</h2>
+        </div>
+        
+        <div class="control-group">
+          <label>ROTATION</label>
+          <div class="toggle-container">
+            <button id="btn-rotate" class="btn btn-toggle active">Auto-Rotate</button>
+          </div>
+          <div class="slider-container">
+            <span class="slider-label">Speed</span>
+            <input type="range" id="slider-speed" min="0" max="100" value="15">
+            <span id="speed-val" class="slider-value">0.15x</span>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label>TIME OF DAY (SUN ANGLE)</label>
+          <div class="slider-container">
+            <span class="slider-label">Sun Position</span>
+            <input type="range" id="slider-sun" min="0" max="360" value="180">
+            <span id="sun-val" class="slider-value">180°</span>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label>VISUAL LAYERS</label>
+          <div class="layer-toggle-list">
+            <button id="btn-layer-clouds" class="btn btn-layer active">Clouds Layer</button>
+            <button id="btn-layer-atmosphere" class="btn btn-layer active">Atmosphere Glow</button>
+            <button id="btn-layer-night" class="btn btn-layer active">Night Lights</button>
+            <button id="btn-layer-bump" class="btn btn-layer active">Terrain Bump</button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <button id="btn-reset" class="btn btn-action">Reset Viewport</button>
+        </div>
+      </section>
+
+      <!-- Stats Panel -->
+      <section class="hud-panel stats-panel">
+        <div class="panel-header">
+          <span class="panel-icon">📊</span>
+          <h2>TELEMETRY</h2>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-label">FPS</span>
+            <span id="stat-fps" class="stat-value">60</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">ZOOM</span>
+            <span id="stat-zoom" class="stat-value">1.0x</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">FPS MODE</span>
+            <span class="stat-value text-green">V-SYNC</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">RENDERER</span>
+            <span class="stat-value text-blue">WebGL2</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Progress / Loading Status Bar -->
+    <footer class="hud-footer">
+      <div id="loader-container" class="loader-container">
+        <div class="loader-info">
+          <span id="loader-status">Initializing WebGL Engine...</span>
+          <span id="loader-percent">0%</span>
+        </div>
+        <div class="loader-bar-bg">
+          <div id="loader-bar" class="loader-bar-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+      <div class="footer-info">
+        <span>ANTIGRAVITY RENDER SYSTEM v1.4.0</span>
+        <span>COORDS: Lat 0.0000°, Lon 0.0000°</span>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

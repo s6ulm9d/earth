@@ -1,0 +1,17 @@
+{
+  "name": "realistic-3d-earth",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 3000 --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "three": "^0.145.0"
+  },
+  "devDependencies": {
+    "vite": "^4.5.0"
+  }
+}

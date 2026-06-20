@@ -1,0 +1,44 @@
+================================================================================
+DEVELOPMENT PROMPTS LOG
+================================================================================
+This file records all user prompts given to build and iterate on this project.
+Each entry includes the timestamp and the exact prompt.
+
+================================================================================
+PHASE 1: Initial MVP — Realistic 3D Earth
+Date: 2026-06-20
+================================================================================
+
+--- PROMPT #1 ---
+Timestamp: 2026-06-20T17:28:51+05:30
+Prompt:
+hey i want a 3d earth it should realistic and 4k resolution and 360 degrees rotatable and implement this fast i dont have much time and u know to maintain the prompt file right and make it as fast possible
+
+--- PROMPT #2 ---
+Timestamp: 2026-06-20T17:31:52+05:30
+Prompt:
+and it should  load fast enough
+
+--- PROMPT #3 ---
+Timestamp: 2026-06-20T18:08:28+05:30
+Prompt:
+not openning in 5173 change to other
+
+--- PROMPT #4 ---
+Timestamp: 2026-06-20T18:21:47+05:30
+Prompt:
+how the fucck its looking like earth to u i want the earth to look exactly like the reference image no fucking compromise — implement properly, check everything before submitting
+
+--- PROMPT #5 ---
+Timestamp: 2026-06-20T18:56:57+05:30
+Prompt:
+continue
+
+
+--- PROMPT #6 ---
+Timestamp: 2026-06-20T19:07:14+05:30
+Prompt:
+why the sunlight is being fixed at a position it should behave like actual sun behaviour the exposed gets brightened and the other part is dark with lights of country like all streets and other lights looking so awesome
+
+
+
