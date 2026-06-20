@@ -40,5 +40,16 @@ Timestamp: 2026-06-20T19:07:14+05:30
 Prompt:
 why the sunlight is being fixed at a position it should behave like actual sun behaviour the exposed gets brightened and the other part is dark with lights of country like all streets and other lights looking so awesome
 
+--- PROMPT #7 ---
+Timestamp: 2026-06-20T22:21:15+05:30
+Prompt:
+i want the earth to be 8k clarity and remove atmosphere glow
+
+--- PROMPT #8 ---
+Timestamp: 2026-06-20T22:27:57+05:30
+Prompt:
+and remove all the text on the screen with minimalistic control at any corner
+
+
 
 
