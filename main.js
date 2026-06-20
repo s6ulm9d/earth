@@ -101,6 +101,12 @@ function updateSunPosition() {
     0,
     Math.sin(rad) * SUN_DIST
   );
+  if (sliderSun) {
+    sliderSun.value = sunAngle;
+  }
+  if (sunValEl) {
+    sunValEl.innerText = `${sunAngle}°`;
+  }
 }
 updateSunPosition();
 
@@ -164,13 +170,14 @@ const atmosphereMat = new THREE.ShaderMaterial({
     varying vec3 vWorldNormal;
     varying vec3 vWorldPos;
     void main() {
+      vec3 normal = normalize(vWorldNormal);
       // View direction in world space (camera → fragment)
       vec3  viewDir   = normalize(uCamPos - vWorldPos);
-      float fresnel   = 1.0 - max(dot(vWorldNormal, viewDir), 0.0);
+      float fresnel   = 1.0 - max(dot(normal, viewDir), 0.0);
       fresnel         = pow(fresnel, 3.5);
 
       // Brighter atmosphere on the sunlit limb
-      float sunFacing = max(dot(vWorldNormal, uSunDir), 0.0);
+      float sunFacing = max(dot(normal, uSunDir), 0.0);
       float intensity = fresnel * (0.45 + 0.75 * sunFacing);
 
       // Azure-blue atmosphere
@@ -210,10 +217,11 @@ const innerAtmMat = new THREE.ShaderMaterial({
     varying vec3 vWorldNormal;
     varying vec3 vWorldPos;
     void main() {
+      vec3 normal = normalize(vWorldNormal);
       vec3  viewDir   = normalize(uCamPos - vWorldPos);
-      float fresnel   = 1.0 - max(dot(vWorldNormal, viewDir), 0.0);
+      float fresnel   = 1.0 - max(dot(normal, viewDir), 0.0);
       fresnel         = pow(fresnel, 5.5);
-      float sunFacing = max(dot(vWorldNormal, uSunDir), 0.0);
+      float sunFacing = max(dot(normal, uSunDir), 0.0);
       float haze      = fresnel * sunFacing * 0.5;
       gl_FragColor    = vec4(0.42, 0.70, 1.0, haze);
     }
@@ -273,9 +281,10 @@ const nightMat = new THREE.ShaderMaterial({
     varying vec2      vUv;
     varying vec3      vWorldNormal; // world-space surface normal
     void main() {
+      vec3 normal = normalize(vWorldNormal);
       // dp > 0  → facing the sun (day side)
       // dp < 0  → facing away   (night side)
-      float dp        = dot(vWorldNormal, uSunDir);
+      float dp        = dot(normal, uSunDir);
 
       // Smooth transition across the terminator (~±8° band)
       // nightMask = 1 on night side, 0 on day side
